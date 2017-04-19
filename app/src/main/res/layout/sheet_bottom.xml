@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:orientation="horizontal"
+    android:background="#FFFFFF"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp" >
+
+    <ImageView
+        android:id="@+id/bs_image"
+        android:layout_width="0dp"
+        android:layout_height="110dip"
+        android:layout_weight="0.4"
+        android:layout_margin="5dip"
+        android:scaleType="fitCenter"
+        android:src="@drawable/history01"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.6"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/bs_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:maxLines="1"
+            android:text=" 회의 후 진리의 치킨 파티"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RatingBar
+                android:id="@+id/bs_ratingbar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:stepSize="0.1"
+                android:rating="3.5" />
+            <TextView
+                android:id="@+id/bs_gradetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9sp"
+                android:text="(+3)"
+                android:layout_alignBottom="@+id/bs_ratingbar"
+                android:layout_toEndOf="@+id/bs_ratingbar" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/bs_datetxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2017.02.03" />
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+
