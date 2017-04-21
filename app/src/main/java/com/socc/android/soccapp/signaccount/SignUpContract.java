@@ -1,31 +1,27 @@
-package com.socc.android.soccapp.account;
-
+package com.socc.android.soccapp.signaccount;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.socc.android.soccapp.account.Account;
 import com.socc.android.soccapp.base.BasePresenter;
 import com.socc.android.soccapp.base.BaseView;
 
 /**
- * Created by ksang on 2017-03-16.
+ * Created by ksang on 2017-04-20.
  */
-public interface AccountContract {
+public interface SignUpContract {
     interface View extends BaseView<Presenter> {
         //뷰에서 진행할 메소드 정의.
         void setLoadingIndicator(boolean active);
-        void successSignIn();
-        void failedSignIn(String msg);
-        void attemptSignIn(Account account);
+        void successSignUp();
+        void failedSignUp(String msg);
+        void attemptSignUp();
     }
 
     interface Presenter extends BasePresenter {
-
         void result(int requestCode, int resultCode);
-
-      //  void loadTasks(boolean forceUpdate);
-
-        void attendLogin(@NonNull Account account);
+        void attendSignUp(@NonNull Account account);
 
     }
 }

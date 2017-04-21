@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.socc.android.soccapp.R;
 import com.socc.android.soccapp.introduce.IntroduceActivity;
+import com.socc.android.soccapp.signaccount.SignUpActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +31,7 @@ public class AccountFragment extends Fragment implements AccountContract.View{
     @BindView(R.id.account_id)  EditText mEmailText;
     @BindView(R.id.account_pwd)  EditText mPwdText;
     @BindView(R.id.login_btn)  Button btn_method;
+    @BindView(R.id.signup_btn)  Button signup_btn;
 
    // private LinearLayout mTasksView;
 
@@ -44,11 +46,6 @@ public class AccountFragment extends Fragment implements AccountContract.View{
     @Override
     public void setLoadingIndicator(boolean active) {
 
-    }
-
-    @Override
-    public Context getContexted(){
-        return this.getContext();
     }
 
     @Override
@@ -68,26 +65,29 @@ public class AccountFragment extends Fragment implements AccountContract.View{
         mPresenter.attendLogin(account);
     }
 
-    @OnClick({R.id.login_btn})
+    @OnClick({R.id.login_btn,R.id.signup_btn})
     public void clickMethod(View view)
     {
+        switch (view.getId()) {
+            case R.id.login_btn:
+                String email = mEmailText.getText().toString();
+                String pwd = mPwdText.getText().toString();
+                attemptSignIn(new Account(email,pwd));
+                break;
+            case R.id.signup_btn:
+                Intent intent=new Intent(this.getContext(),SignUpActivity.class);
+                startActivity(intent);
+               // this.getActivity().finish();
+            default:
+                break;
+        }
 
-        String email = mEmailText.getText().toString();
-        String pwd = mPwdText.getText().toString();
-
-        attemptSignIn(new Account(email,pwd));
-
-    }
-
-    @Override
-    public void attemptSignUp() {
 
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Nullable
