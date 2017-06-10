@@ -1,0 +1,41 @@
+ <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/singupContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:background="#f4f4f4"
+        android:gravity="center_horizontal">
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center_vertical">
+          <ImageView
+              android:id="@+id/signup_profile_img"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="25dp"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:scaleType="fitXY"
+              android:cropToPadding="true"
+              android:adjustViewBounds ="true"
+              android:src="@drawable/sign_profile"/>
+
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/signup_profile_img"
+              android:layout_centerHorizontal="true"
+              android:textColor="#fd6565"
+              android:text="프로필 사진을 등록해 주세요."/>
+
+      </RelativeLayout>
+
+
+ </LinearLayout>
+
+

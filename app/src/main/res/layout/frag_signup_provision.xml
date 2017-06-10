@@ -1,0 +1,118 @@
+ <LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+     android:id="@+id/singupContainer"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:clickable="true"
+     android:orientation="vertical"
+     android:background="#f4f4f4"
+     android:gravity="center_horizontal">
+
+  <android.support.v7.widget.CardView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:card_view="http://schemas.android.com/apk/res-auto"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="0.3"
+      card_view:contentPadding="0dp"
+      card_view:cardElevation="1dp"
+      card_view:cardCornerRadius="6dp"
+      android:layout_margin="16dp"
+      android:id="@+id/cv">
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:paddingLeft="15dp"
+       android:paddingTop="15dp"
+       android:background="@drawable/image_border"
+       android:layout_height="match_parent">
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_weight="0.5"
+         android:text="1.서비스 이용약관"/>
+     <TextView
+         android:id="@+id/provision_use"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="3dp"
+         android:paddingRight="10dp"
+         android:paddingTop="10dp"
+         android:scrollbars="vertical"
+         android:fadeScrollbars="false"
+         android:scrollbarAlwaysDrawVerticalTrack="true"
+         android:layout_weight="9"
+         android:text="@string/provision_use"
+         />
+     <CheckBox
+         android:id="@+id/provision_use_chk"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_weight="0.5"
+         android:layout_marginBottom="5dp"
+         android:layout_marginLeft="-5dp"
+         android:theme="@style/MyCheckBox"
+         android:text="서비스 이용약관 동의"/>
+   </LinearLayout>
+  </android.support.v7.widget.CardView>
+
+  <android.support.v7.widget.CardView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:card_view="http://schemas.android.com/apk/res-auto"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="0.3"
+      android:layout_marginLeft="16dp"
+      android:layout_marginTop="0dp"
+      android:layout_marginRight="16dp"
+      card_view:contentPadding="0dp"
+      card_view:cardElevation="1dp"
+      card_view:cardCornerRadius="6dp"
+      android:id="@+id/csv">
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:paddingLeft="15dp"
+          android:paddingTop="15dp"
+          android:background="@drawable/image_border">
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_weight="0.5"
+               android:text="2.개인정보 취급방침"/>
+           <TextView
+               android:id="@+id/provision_personal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_weight="9"
+               android:scrollbars="vertical"
+               android:fadeScrollbars="false"
+               android:layout_margin="3dp"
+               android:paddingRight="10dp"
+               android:paddingTop="10dp"
+               android:text="@string/provision_personal" />
+
+           <CheckBox
+               android:id="@+id/provision_personal_chk"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_weight="0.5"
+               android:layout_marginLeft="-5dp"
+               android:theme="@style/MyCheckBox"
+               android:text="개인정보 취급방침 동의"/>
+        </LinearLayout>
+  </android.support.v7.widget.CardView>
+
+     <CheckBox
+         android:id="@+id/provision_all_chk"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="10dp"
+         android:theme="@style/MyCheckBox"
+         android:text="서비스 이용약관,개인정보 수집 모두 동의"/>
+
+ </LinearLayout>
+
+
