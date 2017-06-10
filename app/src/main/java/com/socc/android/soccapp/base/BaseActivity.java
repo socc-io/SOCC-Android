@@ -17,6 +17,7 @@ import com.socc.android.soccapp.R;
 import com.socc.android.soccapp.account.AccountActivity;
 import com.socc.android.soccapp.place.PlaceActivity;
 import com.socc.android.soccapp.study.StudyActivity;
+import com.socc.android.soccapp.utills.DLogUtils;
 import com.socc.android.soccapp.utills.SharePreferenceUtils;
 import com.socc.android.soccapp.utills.customview.EndDrawerToggle;
 import com.socc.android.soccapp.utills.customview.ProfileView;
@@ -157,6 +158,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        DLogUtils.i("Resume");
+    }
+    @Override
+    public void onDestroy(){
+        DLogUtils.i("Destroy");
+        super.onDestroy();
+    }
 
 
 
