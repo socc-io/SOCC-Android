@@ -16,12 +16,12 @@ public interface SignUpContract {
         void setLoadingIndicator(boolean active);
         void successSignUp();
         void failedSignUp(String msg);
-        void attemptSignUp();
     }
 
     interface Presenter extends BasePresenter {
         void result(int requestCode, int resultCode);
         void attendSignUp(@NonNull Account account);
+        void uploadImage(@NonNull String url);
 
     }
 }

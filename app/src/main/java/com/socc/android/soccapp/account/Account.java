@@ -14,15 +14,14 @@ public final class Account {
     //@NonNull
    // private final String mNum;
     @SerializedName("email")
-    @Nullable
+
     private final String mEmail;
 
-    @Nullable
     @SerializedName("password")
     private final String mPwd;
 
-
-
+    @Nullable
+    private final String mName;
     /**
      * Use this constructor to specify a completed Task if the Task already has an id (copy of
      * another Task).
@@ -33,8 +32,13 @@ public final class Account {
     public Account(@NonNull String email, @NonNull String pwd) {
         mEmail = email;
         mPwd = pwd;
+        mName = null;
     }
-
+    public Account(@NonNull String email, @NonNull String pwd, @NonNull String name){
+        mEmail = email;
+        mName = name;
+        mPwd = pwd;
+    }
 
     @NonNull
     public String getEmail() {

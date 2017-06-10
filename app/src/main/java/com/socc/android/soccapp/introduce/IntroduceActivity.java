@@ -13,6 +13,7 @@ import android.view.WindowManager;
 
 import com.socc.android.soccapp.R;
 import com.socc.android.soccapp.study.StudyActivity;
+import com.socc.android.soccapp.utills.SharePreferenceUtils;
 import com.socc.android.soccapp.utills.customview.CircleAnimIndicator;
 
 /**
@@ -21,6 +22,7 @@ import com.socc.android.soccapp.utills.customview.CircleAnimIndicator;
 public class IntroduceActivity extends AppCompatActivity {
     ViewPager vp;
     private CircleAnimIndicator circleAnimIndicator;
+    private SharePreferenceUtils mSharePreferenceUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,6 +38,7 @@ public class IntroduceActivity extends AppCompatActivity {
         vp.addOnPageChangeListener(mOnPageChangeListener);
         vp.setOffscreenPageLimit(0);
         circleAnimIndicator.setItemMargin(15);
+        mSharePreferenceUtils = new SharePreferenceUtils(this);
         //애니메이션 속도
         circleAnimIndicator.setAnimDuration(300);
         //indecator 생성
@@ -64,12 +67,12 @@ public class IntroduceActivity extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
-            Log.i("셀렉티드",Integer.toString(position));
             circleAnimIndicator.selectDot(position);
             if(position ==3){
+                mSharePreferenceUtils.put("Intro",true);
                 finish();
                 Intent intent=new Intent(getApplicationContext(),StudyActivity.class);
-                Log.i("크리에이트2","걸림");
+
                 startActivity(intent);
             }
         }
@@ -90,7 +93,6 @@ public class IntroduceActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position)
         {
-            Log.i("오 페이저",Integer.toString(position));
             switch(position)
             {
                 case 0:

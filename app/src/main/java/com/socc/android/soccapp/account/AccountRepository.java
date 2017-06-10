@@ -1,6 +1,7 @@
 package com.socc.android.soccapp.account;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 /**
  * Created by ksang on 2017-03-17.
@@ -26,6 +27,16 @@ public class AccountRepository implements AccountDataSource {
     @Override
     public void attemptSignIn(@NonNull Account account, @NonNull LoadAccountCallback callback) {
         mAccountRemoteDataSource.attemptSignIn(account,callback);
+    }
+
+    @Override
+    public void attemptSignUp(@NonNull Account account, @NonNull AttemptSignUpCallback callback) {
+        mAccountRemoteDataSource.attemptSignUp(account,callback);
+    }
+
+    @Override
+    public void uploadImage(@NonNull String url, @NonNull UploadImageCallback callback) {
+        mAccountRemoteDataSource.uploadImage(url,callback);
     }
 
     @Override

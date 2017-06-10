@@ -1,102 +1,128 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tasksContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center_horizontal">
 
-    <RelativeLayout
-        android:id="@+id/tasksContainer"
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/account_maintxt"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edit_field"
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/edit_field"
+        android:textAlignment="center"
+        android:paddingLeft="30sp"
+        android:paddingRight="30sp"
+        android:textSize="23dp"
+        android:maxLines="1"
+        android:textStyle="normal"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="30dip"
+        android:text="개발을 사랑하는 사람들의모임 쏙"/>
+
+    <LinearLayout
+        android:id="@+id/edit_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
-        <ImageView
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/socc"
-            android:layout_above="@+id/edit_field"
-            android:layout_alignEnd="@+id/login_btn" />
-        <LinearLayout
-            android:id="@+id/edit_field"
+            android:text="EMAIL"
+            android:layout_gravity="left"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="1dp"
+            android:textSize="12sp"
+            android:textColor="#ffffff"/>
+        <EditText
+            android:drawablePadding="3dp"
+            android:id="@+id/account_id"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:hint="아이디를 입력하세요."
+            android:background="#00000000"
+            android:drawableStart="@drawable/ic_email_white_18dp"
+            android:layout_margin="1dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"/>
+        <TextView
+            android:textStyle="normal"
+            android:id="@+id/account_emailtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true">
-
-            <EditText
-                android:id="@+id/account_id"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:hint="아이디를 입력하세요."
-                android:background="@drawable/round"
-                android:layout_margin="1dp" />
-
-            <EditText
-                android:id="@+id/account_pwd"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:inputType="textPassword"
-                android:hint="패스워드를 입력하세요."
-                android:background="@drawable/round"
-                android:layout_margin="1dp" />
-        </LinearLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/edit_field"
-            android:text="SIGN IN"
-            android:layout_alignBottom="@+id/edit_field"
-            android:layout_alignTop="@+id/edit_field"
-            android:background="@drawable/round_button"
-            android:onClick="clickMethod"
-            android:id="@+id/login_btn" />
+            android:textSize="12sp"
+            android:text="PASSWORD"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="1dp"
+            android:textColor="#ffffff"/>
+        <EditText
+            android:id="@+id/account_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:textSize="14sp"
+            android:drawableStart="@drawable/ic_lock_outline_white_18dp"
+            android:drawablePadding="3dp"
+            android:inputType="textPassword"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:hint="패스워드를 입력하세요."
+            android:background="@drawable/round_border"
+            android:layout_margin="1dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_field"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dip"
             android:text="자동로그인"
             android:textColor="#ffffff"
             android:buttonTint="#ffffff"
-            android:layout_alignParentStart="true"
             android:id="@+id/checkBox" />
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBox"
             android:layout_alignEnd="@+id/login_btn"
             android:layout_alignStart="@+id/checkBox"
+            android:layout_marginTop="20dip"
             android:textColor="#fff"
-            android:background="#FF8000"
-            android:text="Sign UP"
-            android:id="@+id/signup_btn">
-        </Button>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:text="암호를 잊으셨습니까?"
-            android:id="@+id/textView3"
-            android:layout_marginTop="24dp"
-            android:gravity="center_horizontal"
-            android:layout_below="@+id/signup_btn"
-            android:layout_alignStart="@+id/signup_btn"
-            android:layout_alignEnd="@+id/login_btn" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:text="개인정보취급방침"
-            android:id="@+id/textView2"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/textView3"
-            android:layout_alignStart="@+id/textView3"
-            android:layout_alignEnd="@+id/textView3"
-            android:gravity="center_horizontal" />
-    </RelativeLayout>
+            android:background="@drawable/round_button"
+            android:text="SIGN IN"
+            android:id="@+id/signin_btn"/>
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/account_signuptxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="30dip"
+            android:text="신입회원 이신가요? 회원가입"/>
+    </LinearLayout>
+</RelativeLayout>
+

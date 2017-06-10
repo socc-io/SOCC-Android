@@ -30,8 +30,6 @@ public class IntroduceFragment_4 extends Fragment {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Log.i("크리에이트","걸림");
-
     }
 
     @Override
@@ -47,10 +45,7 @@ public class IntroduceFragment_4 extends Fragment {
 
     @Override
     public void onStart(){
-
         super.onStart();
-        Log.i("스타트?","실화");
-
     }
 
 }

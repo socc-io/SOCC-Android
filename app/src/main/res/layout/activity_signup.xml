@@ -1,13 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:background="#f4f4f4"
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/singupFrame"
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/step_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:background="#f4f4f4"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/vpager_step_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FD6565"
+            android:text="STEP1"
+            android:background="#f0f0"
+            android:textStyle="normal"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:gravity="center_horizontal"
+            android:textSize="15dp"/>
+        <TextView
+            android:id="@+id/vpager_title_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FD6565"
+            android:background="#f0f0"
+            android:text="약관 동의"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:textStyle="normal"
+            android:gravity="center_horizontal"
+            android:textSize="19dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f4f4f4"
+            android:layout_marginTop="15dp">
+            <ProgressBar
+                android:id="@+id/step_progress"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_centerVertical="true"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:progressDrawable="@drawable/progressbar_progressbar1" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/step_first_text"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="1"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:layout_toStartOf="@+id/step_second_text"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/step_view2"/>
+
+            <TextView
+                android:id="@+id/step_second_text"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="2"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/step_view2"/>
+
+            <TextView
+                android:id="@+id/step_third_text"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="3"
+                android:textSize="20sp"
+                android:layout_toEndOf="@+id/step_second_text"
+                android:textColor="#ffffff"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/step_view2"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <com.socc.android.soccapp.utills.customview.FreezeViewPager
+        android:id="@+id/signup_vpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="#f4f4f4"
+        android:layout_below="@+id/step_layout"
+        android:layout_above="@+id/step_btn_area">
+    </com.socc.android.soccapp.utills.customview.FreezeViewPager>
+
+    <LinearLayout
+        android:id="@+id/step_btn_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#f4f4f4"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+        <Button
+            android:id="@+id/step_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="N E X T"
+            android:textSize="18sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="#FD6565"
+            android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
+            android:drawablePadding="10dp"
+            android:background="@drawable/radius_button" />
+    </LinearLayout>
+
+</RelativeLayout>

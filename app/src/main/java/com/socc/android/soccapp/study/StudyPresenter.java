@@ -1,7 +1,10 @@
 package com.socc.android.soccapp.study;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
+import com.socc.android.soccapp.utills.SharePreferenceUtils;
 
 import java.util.ArrayList;
 
@@ -11,7 +14,6 @@ import java.util.ArrayList;
 public class StudyPresenter implements StudyContract.Presenter{
     private final StudyRepository mStudyRepository;
     private final StudyContract.View mStudyView;
-
 
     public StudyPresenter(@NonNull StudyRepository studyRepository, @NonNull StudyContract.View studyView) {
         mStudyRepository = studyRepository;
@@ -26,9 +28,7 @@ public class StudyPresenter implements StudyContract.Presenter{
 
     @Override
     public void loadStudys() {
-        Log.i("음 로드", "쓰떠띠");
         mStudyRepository.getStudies(new StudiesDataSource.LoadStudiesCallback(){
-
             @Override
             public void onStudiesLoaded(ArrayList<Study> studies) {
                 mStudyView.showStudy(studies);
@@ -45,4 +45,5 @@ public class StudyPresenter implements StudyContract.Presenter{
     public void start() {
 
     }
+
 }

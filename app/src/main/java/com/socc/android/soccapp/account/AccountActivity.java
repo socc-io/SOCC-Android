@@ -1,13 +1,16 @@
 package com.socc.android.soccapp.account;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.WindowManager;
 
 import com.socc.android.soccapp.R;
 import com.socc.android.soccapp.network.AccountAPIService;
 import com.socc.android.soccapp.utills.ActivityUtils;
-import butterknife.ButterKnife;
+import com.socc.android.soccapp.utills.SharePreferenceUtils;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 
 /**
@@ -19,12 +22,13 @@ public class AccountActivity extends AppCompatActivity{
     private AccountRemoteDataSource mAccountRemoteDataSource;
     private AccountRepository mAccountRepository;
     private AccountAPIService mAccountAPIService;
+    private SharePreferenceUtils mSharePreferenceUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account); //레이아웃 달아주시고.
-        ButterKnife.bind(this);
+        mSharePreferenceUtils = new SharePreferenceUtils(this);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -38,10 +42,16 @@ public class AccountActivity extends AppCompatActivity{
                     getSupportFragmentManager(), accountFragment, R.id.contentFrame);
         }
 
-        mAccountAPIService = new AccountAPIService(this);
+        mAccountAPIService = new AccountAPIService();
         mAccountRemoteDataSource = new AccountRemoteDataSource(mAccountAPIService);
         mAccountRepository = new AccountRepository(mAccountRemoteDataSource);
         mAccountPresenter = new AccountPresenter(mAccountRepository,accountFragment,this);
+
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 
 }

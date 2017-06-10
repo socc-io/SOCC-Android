@@ -1,6 +1,8 @@
 package com.socc.android.soccapp.utills.customview;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -33,16 +35,23 @@ public class EndDrawerToggle implements DrawerLayout.DrawerListener {
         arrowDrawable = new DrawerArrowDrawable(activity);
         arrowDrawable.setDirection(DrawerArrowDrawable.ARROW_DIRECTION_END);
 
-        toggleButton = new ImageButton(activity, null, R.attr.toolbarNavigationButtonStyle);
+        //toggleButton = new ImageButton(activity, null, R.drawable.history01);
+        toggleButton = new ImageButton(activity, null,R.attr.toolbarNavigationButtonStyle);
+        //toggleButton.setBackgroundResource(R.drawable.ic_menu_white_18dp);
+       // toggleButton.setImageDrawable(R.drawable.ic_menu_white_18dp);
+
         toolbar.addView(toggleButton, new ActionBar.LayoutParams(GravityCompat.END));
-        toggleButton.setImageDrawable(arrowDrawable);
+       // toggleButton.setImageDrawable(arrowDrawable);
+
+        Drawable drawable = ResourcesCompat.getDrawable(activity.getResources(), R.drawable.ic_menu_white_24dp, activity.getTheme());
+        toggleButton.setImageDrawable(drawable);
+
         toggleButton.setOnClickListener(new OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                toggle();
-                                            }
-                                        }
-        );
+            @Override
+            public void onClick(View v) {
+                toggle();
+            }
+        });
     }
 
     public void syncState() {

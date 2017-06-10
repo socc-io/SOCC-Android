@@ -32,5 +32,11 @@
                 android:title="Send" />
         </menu>
     </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/log_out"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Log Out" />
+    </group>
 
 </menu>

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
+
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
@@ -14,9 +15,14 @@ android {
         multiDexEnabled true
     }
     buildTypes {
+        debug {
+            //개발용 키
+            resValue "string","google_maps_api_key", "AIzaSyCw_wFMoaYrw-bc0fuVLJWrMNgWggo9P1k"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "google_maps_api_key", "AIzaSyCw_wFMoaYrw-bc0fuVLJWrMNgWggo9P1k"
         }
     }
 }
@@ -25,11 +31,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
-
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.jakewharton:butterknife:8.5.1'
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
@@ -38,4 +43,13 @@ dependencies {
     compile 'com.prolificinteractive:material-calendarview:1.4.3'
     compile 'com.google.android.gms:play-services-maps:10.2.1'
     compile 'com.github.clans:fab:1.6.2'
+    compile 'com.google.firebase:firebase-core:10.2.1'
+    compile 'com.google.firebase:firebase-messaging:10.2.1'
+    compile 'com.tsengvn:typekit:1.0.1'
+    compile 'com.stepstone.stepper:material-stepper:3.2.0'
+    compile 'gun0912.ted:tedpermission:1.0.3'
+    compile 'com.android.support:cardview-v7:24.2.1'
+    compile 'me.grantland:autofittextview:0.2.+'
+
 }
+apply plugin: 'com.google.gms.google-services'

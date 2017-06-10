@@ -4,7 +4,7 @@
     <!-- 평상시 -->
     <item android:state_focused="false" android:state_pressed="false">
         <shape>
-            <solid android:color="#f1f1f1" />
+            <solid android:color="#90FE5A65" />
             <corners android:radius="5dp" />
         </shape>
     </item>
@@ -12,7 +12,7 @@
     <!-- 클릭했을 때 -->
     <item android:state_focused="false" android:state_pressed="true">
         <shape>
-            <solid android:color="#f1f1f1" />
+            <solid android:color="#FE5A65" />
             <corners android:radius="5dp" />
         </shape>
     </item>

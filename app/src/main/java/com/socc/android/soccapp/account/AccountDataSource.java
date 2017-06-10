@@ -14,16 +14,27 @@ public interface  AccountDataSource {
         void onAccountsLoaded(List<Account> accounts);
         void onSignIn(JsonResultVoUtils account);
         void onSignFailed(String msg);
+        void onSignError();
         void onDataNotAvailable();
+    }
+    interface AttemptSignUpCallback {
+        void onSuccessSignUp(JsonResultVoUtils account);
+        void onFailSignUp(String msg);
+    }
+    interface GetAccountCallback {
+
+    }
+    interface UploadImageCallback {
+        void onSuccessUpload(String result);
+        void onFailUpload(String msg);
     }
 
-    interface GetAccountCallback {
-        void onSigninResult(LoadAccountCallback callback);
-        void onTaskLoaded(Account account);
-        void onDataNotAvailable();
-    }
 
     void attemptSignIn(@NonNull Account account, @NonNull LoadAccountCallback callback);
+
+    void attemptSignUp(@NonNull Account account, @NonNull AttemptSignUpCallback callback);
+
+    void uploadImage(@NonNull String url,@NonNull UploadImageCallback callback);
 
     void getAccount(@NonNull LoadAccountCallback callback);
 
